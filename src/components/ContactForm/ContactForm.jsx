@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
+import styles from './ContactForm.module.css';
 
 const INITIAL_STATE = {
     name: '',
@@ -36,18 +37,18 @@ export class ContactForm extends Component {
         const { name, number } = this.state;
 
         return (
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor={contactNameId}>Name</label>
-                    <input value={name} onChange={handleChange} id={contactNameId} type="text" name="name" placeholder="name" required />
+            <form onSubmit={handleSubmit} className={styles.form}>
+                <div className={styles.formField}>
+                    <label htmlFor={contactNameId} className={styles.formLabel}>Name</label>
+                    <input className={styles.formInput} value={name} onChange={handleChange} id={contactNameId} type="text" name="name" placeholder="Name" required />
                 </div>
                 
-                <div>
-                    <label htmlFor={contactNumberId}>Number</label>
-                    <input value={number} onChange={handleChange} id={contactNumberId} type="tel" name="number" placeholder="number" required />
+                <div className={styles.formField}>
+                    <label htmlFor={contactNumberId} className={styles.formLabel}>Number</label>
+                    <input className={styles.formInput} value={number} onChange={handleChange} id={contactNumberId} type="tel" name="number" placeholder="Number" required />
                 </div>
             
-                <button type="submit">Add contact</button>
+                <button type="submit" className={styles.formButton}>Add contact</button>
             </form>
         )
     }

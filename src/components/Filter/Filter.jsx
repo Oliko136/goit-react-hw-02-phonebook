@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
+import styles from './Filter.module.css';
 
 export const Filter = ({ filter, handleFilterChange }) => {
     return (
-        <input value={filter} name="filter" placeholder="Search by name" onChange={handleFilterChange}/>
+        <input className={styles.filter} value={filter} name="filter" placeholder="Search by name" onChange={handleFilterChange}/>
     )
 }
 
